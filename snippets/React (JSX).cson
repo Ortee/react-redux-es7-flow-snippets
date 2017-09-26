@@ -19,6 +19,38 @@
     prefix: "_ird"
     body: "import ReactDOM from 'react-dom';"
 
+  "React: import Autobind":
+    prefix: "_iautobind"
+    body: "import autobind from 'autobind-decorator';"
+
+  "React: import Moment":
+    prefix: "_imoment"
+    body: "import moment from 'moment';"
+
+  "React: import Util":
+    prefix: "_iutil"
+    body: "import ${1} from 'Utils/${1}.jsx';"
+
+  "React: import Mock":
+    prefix: "_imock"
+    body: "import ${1} from 'Mocks/${1}.js';"
+
+  "React: import Svg":
+    prefix: "_isvg"
+    body: "import ${1}IconSVG from 'Svg/${1}IconSVG.jsx';"
+
+  "React: import Config":
+    prefix: "_iconfig"
+    body: "import config from 'Config';"
+
+  "React: import LANGUAGE":
+    prefix: "_ilang"
+    body: "import {${1} as LANGUAGE} from 'Languages';"
+
+  "React: import Scroll":
+    prefix: "_iscroll"
+    body: "import { Scrollbars } from 'Modules/react-custom-scrollbars';"
+
   "React: export empty()":
     prefix: "_ex"
     body: "export ${1};"
