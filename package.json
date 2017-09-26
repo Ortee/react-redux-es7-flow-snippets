@@ -1,6 +1,6 @@
 {
   "name": "react-redux-es7-flow-snippets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Atom Snippets for React Redux ES7 Flow snippets",
   "main": "./lib/react-redux-es7-flow-snippets",
   "scripts": {
