@@ -83,26 +83,6 @@
     prefix: "_cwu"
     body: "componentWillUpdate(nextProps, nextState) {\n\t${1}\n}${2}"
 
-  "React: cx({ ... })":
-    prefix: "_cx"
-    body: "cx({\n\t$1: $2\n});"
-
-  "React: forceUpdate(...)":
-    prefix: "_fup"
-    body: "forceUpdate(${1:callback});"
-
-  "React: getDefaultProps() { return {...} } ":
-    prefix: "_gdp"
-    body: "getDefaultProps() {\n\treturn {\n\t\t${1}\n\t};\n},"
-
-  "React: getInitialState() { return {...} } ":
-    prefix: "_gis"
-    body: "getInitialState() {\n\treturn {\n\t\t${1}: ${2}\n\t};\n},"
-
-  "React: isMounted()":
-    prefix: "_ism"
-    body: "isMounted()"
-
   "React: Class.contextTypes = { ... }":
     prefix: "_cct"
     body: "${1}.contextTypes = {\n\t${2}: PropTypes.${3:string}\n};"
@@ -133,31 +113,27 @@
 
   "React: class skeleton":
     prefix: "_cer"
-    body: "import React, { Component } from 'react';\n\nclass ${1} extends Component {\n\n\trender() {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n\n}\n\nexport default ${1};"
-
-  "React: createClass skeleton":
-    prefix: "_rcc"
-    body: "import React from 'react';\n\nexport default React.createClass({\n\n\trender() {\n\t\treturn (\n\t\t\t${1:<div></div>}\n\t\t);\n\t}\n\n});"
+    body: "/* @flow */\n\nimport React, { Component } from 'react';\n\nclass ${1} extends Component {\n\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n\n}\n\nexport default ${1};"
 
   "React: Stateless Component":
     prefix: "_rsc"
-    body: "import React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1} = ({${2}}) => (\n\t<div>${4}</div>\n);\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React from 'react';\nimport PropTypes from 'prop-types';\n\ntype ${1}Type = {}\n\nconst ${1}: ${1} = ({${2}}) => (\n\t<div>${4}</div>\n);\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
 
   "React: Stateless Component Return":
     prefix: "_rscr"
-    body: "import React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1} = ({${2}}) => {\n\treturn (\n\t\t<div>${4}</div>\n\t);\n}\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1}: ${1} = ({${2}}) => {\n\treturn (\n\t\t<div>${4}</div>\n\t);\n}\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
 
   "React: Stateless Component Click":
     prefix: "_rscc"
-    body: "import React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1} = ({${2}}) => {\n\tconst handleClick = () => {};\n\treturn (\n\t\t<div onClick={handleClick}>${4}</div>\n\t);\n}\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1}: ${1} = ({${2}}) => {\n\tconst handleClick = () => {};\n\treturn (\n\t\t<div onClick={handleClick}>${4}</div>\n\t);\n}\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
 
   "React: Stateless Component PropTypes":
     prefix: "_rscp"
-    body: "import React from 'react';\nimport PropTypes from 'prop-types';\n\nconst ${1} = ({${2}}) => (\n\t<div>${4}</div>\n);\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React from 'react';\nimport PropTypes from 'prop-types';\n\ntype ${1}Type = {}\n\nconst ${1}: ${1} = ({${2}}) => (\n\t<div>${4}</div>\n);\n\n${1}.propTypes = {\n\t${2}: PropTypes.${3}\n};\n\nexport default ${1};"
 
   "React: Stateless Function":
     prefix: "_rsf"
-    body: "const ${1} = ({${2}}) => (\n\t<div>{${2}}</div>\n);"
+    body: "const ${1}: ${1} = ({${2}}) => (\n\t<div>{${2}}</div>\n);"
 
   "React: Component displayName":
     prefix: "_cdn"
@@ -173,7 +149,7 @@
 
   "React: shouldComponentUpdate(np, ns) { ... }":
     prefix: "_scu"
-    body: "shouldComponentUpdate(nextProps, nextState) {\n\t${1}\n}${2}"
+    body: "shouldComponentUpdate(nextProps: Object, nextState: Object) {\n\t${1}\n}${2}"
 
   "React: this.props.":
     prefix: "_props"
@@ -183,21 +159,9 @@
     prefix: "_state"
     body: "this.state.${1}"
 
-  "React: render(component, container, [callback])":
-    prefix: "_rrc"
-    body: "React.render(${1:<$2 />}, ${3:document.body}${4:, ${5:callback}});"
-
   "React: constructor(props)":
     prefix: "_cns"
-    body: "constructor(props) {\n\tsuper(props);\n\t${1:this.state = ${2};}\n}"
-
-  "React: class Foo extends Bar":
-    prefix: "_clss"
-    body: "class ${1:Foo} extends ${2:React.Component} {\n\trender() {\n\t\t${3}\n\t}\n}"
-
-  "React: dangerouslySetInnerHTML":
-    prefix: "_dnghtml"
-    body: "dangerouslySetInnerHTML={{__html: ${1}}}"
+    body: "state = {}\nconstructor(props: Object) {\n\tsuper(props);\n\t${1:this.state = ${2};}\n}"
 
   # PropType string
   'React: PropType string':
