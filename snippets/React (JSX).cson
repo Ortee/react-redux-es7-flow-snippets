@@ -93,7 +93,7 @@
 
   "React: class skeleton":
     prefix: "_cer"
-    body: "/* @flow */\n\nimport React, { Component } from 'react';\n\nclass ${1} extends Component {\n\n\trender(): React$Element<*> {\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React, { Component } from 'react';\n\nclass ${1} extends Component {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\nexport default ${1};"
 
   "React: Stateless Component":
     prefix: "_rsc"
