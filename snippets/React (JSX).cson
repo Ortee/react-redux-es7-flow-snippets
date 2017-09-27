@@ -95,6 +95,10 @@
     prefix: "_cer"
     body: "/* @flow */\n\nimport React, { Component } from 'react';\n\nclass ${1} extends Component {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\nexport default ${1};"
 
+  "React: class skeleton with propTypes":
+    prefix: "_cerp"
+    body: "/* @flow */\n\nimport React, { Component } from 'react';\nimport PropTypes from 'prop-types';\n\nclass ${1} extends Component {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\n${1}.propTypes = {};\n\nexport default ${1};"
+
   "React: Stateless Component":
     prefix: "_rsc"
     body: "/* @flow */\n\nimport React from 'react';\nimport PropTypes from 'prop-types';\n\ntype ${1}Type = {}\n\nconst ${1}: ${1} = ({${2}}:${1}Type) => (\n\t<div>${4}</div>\n);\n\n${1}.propTypes = {};\n\nexport default ${1};"
