@@ -7,9 +7,9 @@
     prefix: "_ir"
     body: "import React from 'react';"
 
-  "React: import() with Component":
+  "React: import() with PureComponent":
     prefix: "_irc"
-    body: "import React, { Component } from 'react';"
+    body: "import React, { PureComponent } from 'react';"
 
   "React: import() with PropTypes":
     prefix: "_irp"
@@ -26,6 +26,14 @@
   "React: import Moment":
     prefix: "_imoment"
     body: "import moment from 'moment';"
+
+  "React: import shallowEqual":
+    prefix: "_ishallowequal"
+    body: "import shallowEqual from 'shallowequal';"
+
+  "React: import classNames":
+    prefix: "_iclassnames"
+    body: "import shallowEqual from 'shallowequal';"
 
   "React: import Util":
     prefix: "_iutil"
@@ -67,6 +75,10 @@
     prefix: "_cdup"
     body: "componentDidUpdate(prevProps: Object, prevState: Object) {\n\t${1}\n}${2}"
 
+  "React: componentDidCatch(pp, ps) { ... }":
+    prefix: "_cdc"
+    body: "componentDidCatch(error, info) {\n\t${1}\n}${2}"
+
   "React: componentWillMount() { ... }":
     prefix: "_cwm"
     body: "componentWillMount() {\n\t${1}\n}${2}"
@@ -93,11 +105,11 @@
 
   "React: class skeleton":
     prefix: "_cer"
-    body: "/* @flow */\n\nimport React, { Component } from 'react';\n\nclass ${1} extends Component {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React, { PureComponent } from 'react';\n\nclass ${1} extends PureComponent {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\nexport default ${1};"
 
   "React: class skeleton with propTypes":
     prefix: "_cerp"
-    body: "/* @flow */\n\nimport React, { Component } from 'react';\nimport PropTypes from 'prop-types';\n\nclass ${1} extends Component {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\n${1}.propTypes = {};\n\nexport default ${1};"
+    body: "/* @flow */\n\nimport React, { PureComponent } from 'react';\nimport PropTypes from 'prop-types';\n\nclass ${1} extends PureComponent {\n\trender(): React$Element<*> {\n\t\treturn (\n\t\t\t${2:<div></div>}\n\t\t);\n\t}\n}\n\n${1}.propTypes = {};\n\nexport default ${1};"
 
   "React: Stateless Component":
     prefix: "_rsc"
@@ -145,7 +157,7 @@
 
   "React: constructor(props)":
     prefix: "_cns"
-    body: "state = {}\nconstructor(props: Object) {\n\tsuper(props);\n\t${1:this.state = ${2};}\n}"
+    body: "state: {};\nconstructor(props: Object) {\n\tsuper(props);\n\t${1:this.state = ${2};}\n}"
 
   # PropType string
   'React: PropType string':
